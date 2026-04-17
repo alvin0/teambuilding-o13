@@ -1,6 +1,9 @@
 import { CrownIcon, FoodIcon, StrategyIcon } from "./icons";
 import type { Game } from "./types";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const withBasePath = (path: string) => `${basePath}${path}`;
+
 export const games: Game[] = [
   {
     id: "mon-an-bingo",
@@ -28,7 +31,7 @@ export const games: Game[] = [
     accent: "#ff8c61",
     accentSoft: "rgba(255, 140, 97, 0.18)",
     glow: "rgba(255, 140, 97, 0.35)",
-    imageSrc: "/resources/game-1.png",
+    imageSrc: withBasePath("/resources/game-1.png"),
     imageAlt:
       "Poster game Món Ăn Bingo với bảng bingo món ăn và người chơi hào hứng quanh bàn.",
     posterBubbles: ["Có phở!", "Chọn nhanh!", "Bắt đầu!"],
@@ -59,7 +62,7 @@ export const games: Game[] = [
     accent: "#5f7cff",
     accentSoft: "rgba(95, 124, 255, 0.16)",
     glow: "rgba(95, 124, 255, 0.33)",
-    imageSrc: "/resources/game-2.png",
+    imageSrc: withBasePath("/resources/game-2.png"),
     imageAlt:
       "Poster game Hoàng Đế Đại Chiến với hai đội đối đầu, hai hoàng đế và năm mini game.",
     posterBubbles: ["Chọn lính trước!", "Chiến nào!", "Đội tôi thắng!"],
@@ -91,7 +94,7 @@ export const games: Game[] = [
     accent: "#35d6c4",
     accentSoft: "rgba(53, 214, 196, 0.16)",
     glow: "rgba(53, 214, 196, 0.32)",
-    imageSrc: "/resources/game-3.png",
+    imageSrc: withBasePath("/resources/game-3.png"),
     imageAlt:
       "Poster game Chiến Lược Gia Tài Ba với bốn người chơi, bàn bài và các viên kẹo đặt cược.",
     posterBubbles: ["Mình đoán mạnh!", "Phân tích đối thủ!", "Tăng cược!"],
