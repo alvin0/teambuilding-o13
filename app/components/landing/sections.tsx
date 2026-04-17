@@ -1,8 +1,9 @@
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { games, heroMoments, heroStats } from "./data";
 import { GuideModal } from "./guide-modal";
-import { ArrowUpRightIcon, SparkIcon } from "./icons";
+import { ArrowUpRightIcon } from "./icons";
 import { Badge, CopyBlock, viewport } from "./shared";
 import type { Game, MotionPreference } from "./types";
 import {
@@ -87,14 +88,55 @@ export function SiteHeader({
 }: {
   shouldReduceMotion: MotionPreference;
 }) {
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+
+  useEffect(() => {
+    if (shouldReduceMotion) {
+      setIsHeaderHidden(false);
+      return;
+    }
+
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY;
+
+      if (currentScrollY < 24) {
+        setIsHeaderHidden(false);
+      } else if (scrollDelta > 8) {
+        setIsHeaderHidden(true);
+      } else if (scrollDelta < -8) {
+        setIsHeaderHidden(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [shouldReduceMotion]);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-[#efcda6]/80 bg-[#fff8ee]/88 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-[94rem] items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#hero" className="flex items-center gap-4">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#ff9a3d,#ff6d38)] text-white shadow-[0_16px_30px_rgba(255,134,61,0.24)]">
-            <SparkIcon className="h-5 w-5" />
+    <motion.header
+      className="sticky top-0 z-40 border-b border-[#efcda6]/80 bg-[#fff8ee]/88 backdrop-blur-xl"
+      animate={shouldReduceMotion ? undefined : { y: isHeaderHidden ? "-100%" : "0%" }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="mx-auto flex max-w-[94rem] items-center justify-between gap-6 px-6 py-4 lg:px-8">
+        <a href="#hero" className="flex items-center gap-3 sm:gap-4">
+          <span className="flex h-12 items-center rounded-[1.25rem] border border-[#ffd2b3] bg-[linear-gradient(135deg,#ff8e4d,#ff6b5f)] px-3 shadow-[0_16px_30px_rgba(255,134,61,0.2)] sm:h-14 sm:px-4">
+            <Image
+              src="/resources/logo-company.png"
+              alt="Company logo"
+              width={1521}
+              height={428}
+              priority
+              className="h-6 w-auto object-contain drop-shadow-[0_4px_10px_rgba(120,20,0,0.18)] sm:h-7"
+            />
           </span>
-          <div>
+          <div className="hidden sm:block">
             <p className="font-display text-sm uppercase tracking-[0.38em] text-[#a34a12]">
               Team Building
             </p>
@@ -105,9 +147,6 @@ export function SiteHeader({
         </a>
 
         <nav className="hidden items-center gap-8 text-base font-bold text-[#8f532f] xl:flex">
-          <a href="#hero" className="transition hover:text-[#5f250a]">
-            Hero
-          </a>
           {games.map((game, index) => (
             <a
               key={game.id}
@@ -118,18 +157,8 @@ export function SiteHeader({
             </a>
           ))}
         </nav>
-
-        <motion.a
-          href={`#${games[0].id}`}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[linear-gradient(135deg,#ffb743,#ff7b43)] px-6 py-3 text-base font-black text-white shadow-[0_18px_36px_rgba(255,152,67,0.24)]"
-          whileHover={shouldReduceMotion ? undefined : { y: -2, scale: 1.02 }}
-          whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-        >
-          <span>Vào Game 1</span>
-          <ArrowUpRightIcon className="h-4 w-4" />
-        </motion.a>
       </div>
-    </header>
+    </motion.header>
   );
 }
 
@@ -569,6 +598,53 @@ function GameShowcaseSection({
                   </div>
                 ))}
               </div>
+
+              {game.sectionFacts?.length ? (
+                <div className="mt-5 grid gap-3 xl:grid-cols-3">
+                  {game.sectionFacts.map((fact) => (
+                    <div
+                      key={fact.label}
+                      className="rounded-[1.65rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(245,255,252,0.94))] px-4 py-4 shadow-[0_14px_28px_rgba(53,214,196,0.08)]"
+                    >
+                      <p className="text-xs font-black uppercase tracking-[0.22em] text-[#35b8ab]">
+                        {fact.label}
+                      </p>
+                      <p className="mt-3 text-sm leading-7 text-[#6d4a2a] xl:text-base">
+                        {fact.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
+              {game.subgames?.length ? (
+                <div className="mt-5 rounded-[1.8rem] border border-white/80 bg-[linear-gradient(180deg,rgba(242,246,255,0.9),rgba(255,255,255,0.96))] px-4 py-4 shadow-[0_16px_34px_rgba(95,124,255,0.1)] xl:px-5">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <p className="text-sm font-black uppercase tracking-[0.24em] text-[#5570da]">
+                      5 mini game quyết định ngai vàng
+                    </p>
+                    <span className="rounded-full bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#5f7cff] shadow-[0_10px_20px_rgba(95,124,255,0.08)]">
+                      Mỗi người chỉ ra sân 1 lần
+                    </span>
+                  </div>
+
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+                    {game.subgames.map((subgame, subgameIndex) => (
+                      <div
+                        key={subgame}
+                        className="rounded-[1.4rem] border border-white bg-white/92 px-3 py-3 shadow-[0_12px_24px_rgba(95,124,255,0.08)]"
+                      >
+                        <p className="text-xs font-black uppercase tracking-[0.2em] text-[#91a3f7]">
+                          {`0${subgameIndex + 1}`}
+                        </p>
+                        <p className="mt-2 text-sm leading-6 text-[#5c3c26]">
+                          {subgame}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
 
               <div className="mt-6 flex flex-wrap gap-4">
                 <motion.button

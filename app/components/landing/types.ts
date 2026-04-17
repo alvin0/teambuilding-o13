@@ -10,6 +10,11 @@ export type GuideStep = {
   cue: string;
 };
 
+export type GameFact = {
+  label: string;
+  value: string;
+};
+
 export type HeroMoment = {
   gameId: string;
   headline: string;
@@ -29,6 +34,8 @@ export type Game = {
   concept: string;
   winCondition: string;
   bullets: string[];
+  sectionFacts?: GameFact[];
+  subgames?: string[];
   highlights: string[];
   visualTitle: string;
   accent: string;

@@ -15,15 +15,15 @@ export const games: Game[] = [
     summary:
       "Cuộc đua ẩm thực nơi tốc độ, quan sát và độ lì của chiếc bụng cùng lên sân khấu.",
     intro:
-      "Mỗi người tự xếp một bàn Bingo 3×3 từ 9 món ăn và phải ăn ngay khi ô của mình được gọi tên.",
+      "MC nêu 9 món, mỗi người dùng chén lấy đủ và xếp thành bàn Bingo 3×3 trước khi bước vào màn gọi món.",
     concept:
       "Nhịp chơi nhanh, phản xạ liên tục và tiếng cười bùng nổ vì ai cũng vừa soi bảng vừa chiến đấu với chiếc bụng của mình.",
     winCondition:
-      "Chạm 2 hàng dọc hoặc 2 hàng ngang trước tiên để thắng.",
+      "Người chơi ăn hết 2 hàng dọc hoặc 2 hàng ngang trước tiên sẽ giành chiến thắng.",
     bullets: [
-      "Lấy món càng nhanh, lợi thế mở màn càng lớn.",
-      "Trúng ô là phải ăn ngay, không có chỗ cho chần chừ.",
-      "Cả bàn luôn ở trạng thái hỗn loạn dễ thương và đầy tiếng cười.",
+      "6 người cùng lấy đủ 9 món và xếp thành 9 ô vuông 3×3 bằng chén.",
+      "Ai gọi trúng món mình có thì phải ăn ngay phần trong chén đó.",
+      "Người lấy xong sớm được ưu tiên ăn trước và dễ chiếm nhịp trận hơn.",
     ],
     highlights: ["Bingo 3×3", "Food pop animation", "Progress theo số hàng"],
     visualTitle: "Bingo board đang nóng máy",
@@ -35,29 +35,29 @@ export const games: Game[] = [
       "Poster game Món Ăn Bingo với bảng bingo món ăn và người chơi hào hứng quanh bàn.",
     posterBubbles: ["Có phở!", "Chọn nhanh!", "Bắt đầu!"],
     guideIntro:
-      "Một vòng Bingo vui nhộn nơi ai cũng phải vừa quan sát bàn, vừa phản xạ, vừa thật sự ăn món vừa được gọi.",
+      "MC sẽ nêu sẵn 9 món ăn. 6 người chơi phải lấy đủ 9 món bằng chén, xếp thành 9 ô vuông 3×3 và bước vào vòng gọi món với đúng phần ăn của mình.",
     guideSteps: [
       {
-        title: "Xếp bàn 3×3",
+        title: "Lấy 9 món và dựng bàn 3×3",
         detail:
-          "Mỗi người nhận 9 món ăn và tự sắp thành bảng Bingo 3×3 của riêng mình trước khi game bắt đầu.",
-        cue: "Thu thập nhanh để vào trận với bàn đẹp và lợi thế sớm.",
+          "Sau khi MC công bố 9 món cần chuẩn bị, mỗi người dùng chén lấy đủ 9 món và sắp thành 9 ô vuông ngăn cách theo bố cục 3 hàng x 3 cột trên bàn của mình.",
+        cue: "Ai hoàn thành sớm nhất sẽ được ưu tiên ăn trước.",
       },
       {
-        title: "Nghe gọi món, ăn ngay",
+        title: "Gọi món nào, ăn món đó",
         detail:
-          "MC hoặc người chơi lần lượt gọi tên một món. Nếu món đó xuất hiện trên bàn của bạn, bạn phải đánh dấu và ăn ngay món đó.",
-        cue: "Không chỉ trúng ô, bạn còn phải xử lý chiếc bụng thật nhanh.",
+          "Mỗi người chơi sắp xếp ngẫu nhiên 9 món rồi lần lượt hô to tên một món bất kỳ. Những ai có đúng món đó trên bàn sẽ phải ăn ngay để tính tiến độ.",
+        cue: "Đã bị gọi trúng thì phải ăn hết phần thức ăn trong chén đó.",
       },
       {
-        title: "Khóa 2 hàng để thắng",
+        title: "Hoàn thành 2 hàng để thắng",
         detail:
-          "Người đầu tiên hoàn thành 2 hàng ngang hoặc 2 hàng dọc sẽ hô Bingo và giành chiến thắng.",
-        cue: "Ưu tiên các ô tạo chuỗi đôi để về đích sớm hơn.",
+          "Thành viên nào ăn hết trước 2 hàng dọc hoặc 2 hàng ngang trên bảng Bingo của mình sẽ là người chiến thắng.",
+        cue: "Nên nhìn thế cờ để ưu tiên các ô có thể tạo 2 hàng nhanh nhất.",
       },
     ],
     guideOutro:
-      "Luật ngắn, nhịp nhanh, tiếng cười lớn. Đây là game mở màn cực hợp để kéo cả đội nhập cuộc ngay lập tức.",
+      "Lưu ý: lấy thức ăn vừa đủ. Đã lấy chén nào để chơi thì phải ăn hết thức ăn trong chén đó, nên tốc độ luôn phải đi cùng chiến lược và khả năng ăn thật.",
     icon: FoodIcon,
   },
   {
@@ -65,21 +65,29 @@ export const games: Game[] = [
     title: "Hoàng Đế Đại Chiến",
     shortTitle: "Đại Chiến Đế Chế",
     players: "10 người • 2 đội",
-    vibe: "Chọn quân • Đấu trận • Vô địch",
-    spirit: "Đối đầu • Chiến thuật • Đồng đội bùng nổ",
+    vibe: "Draft đội • Chọn tướng • Quyết chiến",
+    spirit: "Đấu đội • Chiến thuật • Cân não từng lượt",
     summary:
-      "Hai Hoàng Đế tuyển quân, dựng đội hình và phân người đúng trận để tranh ngôi vô địch.",
+      "10 người bốc thăm chọn 2 Hoàng Đế, chia thành 2 phe và phân quân qua 5 mini game để tranh ngôi vương.",
     intro:
-      "Sau màn draft đội hình, hai phe bước vào 5 mini game trải từ thể lực đến đấu trí và chung kết quyết định.",
+      "Hai Hoàng Đế oẳn tù tì giành lượt chọn trước, hoàn tất đội hình 5 người và bước vào loạt đấu thắng 3 trong 5.",
     concept:
-      "Mỗi thành viên chỉ ra sân một lần, nên Hoàng Đế thắng bằng cách chọn đúng người cho đúng thử thách.",
-    winCondition: "Đội thắng 3 trên 5 mini game sẽ giành vương miện vô địch.",
+      "Đây là game chiến thuật theo đội: mỗi thành viên chỉ được ra sân một lần, nên Hoàng Đế phải đọc đúng điểm mạnh của từng người trước khi tung quân.",
+    winCondition:
+      "Đội nào thắng 3 trong 5 mini game sẽ thắng chung cuộc; nếu hòa 2-2 sau 4 game thì hai Hoàng Đế trực tiếp đấu game 5 để phân định.",
     bullets: [
-      "Draft đội hình tạo cảm giác battle thật sự ngay từ đầu.",
-      "Mỗi mini game đại diện cho một loại thử thách khác nhau.",
-      "Nếu hòa sau 4 game, hai Hoàng Đế bước vào màn quyết chiến cuối cùng.",
+      "10 người bốc thăm chọn 2 Hoàng Đế, mỗi phe sẽ có 1 Hoàng Đế và 4 thành viên.",
+      "Hoàng Đế thắng oẳn tù tì được quyền chọn người trước để hoàn thiện đội hình.",
+      "Đội thắng chung cuộc nhận phần thưởng chia đều cho toàn bộ thành viên.",
     ],
-    highlights: ["Layout 2 phe", "Scoreboard 3/5", "Reveal đội hình"],
+    subgames: [
+      "Plank 1 phút",
+      "Lật chai nước",
+      "Đuổi hình bắt chữ",
+      "Thiện xạ tài ba",
+      "Đấu giá sức ăn",
+    ],
+    highlights: ["Draft 2 phe", "Lineup 5 game", "Chung kết Hoàng Đế"],
     visualTitle: "Battle arena chia đôi chiến tuyến",
     accent: "#5f7cff",
     accentSoft: "rgba(95, 124, 255, 0.16)",
@@ -87,54 +95,98 @@ export const games: Game[] = [
     imageSrc: withBasePath("/resources/game-2.png"),
     imageAlt:
       "Poster game Hoàng Đế Đại Chiến với hai đội đối đầu, hai hoàng đế và năm mini game.",
-    posterBubbles: ["Chọn lính trước!", "Chiến nào!", "Đội tôi thắng!"],
+    posterBubbles: ["Bốc thăm thôi!", "Chọn quân trước!", "Chung kết Hoàng Đế!"],
     guideIntro:
-      "Một trận battle theo đội, nơi Hoàng Đế phải draft quân và phân người đúng mini game để giữ lợi thế suốt 5 vòng.",
+      "10 người chơi bốc thăm chọn ra 2 Hoàng Đế. Sau màn oẳn tù tì để quyết định lượt draft, mỗi Hoàng Đế xây đội hình 5 người và phân quân qua 5 mini game để chạm mốc 3 chiến thắng.",
     guideSteps: [
       {
-        title: "Chọn Hoàng Đế, draft đội",
+        title: "Bốc thăm chọn 2 Hoàng Đế",
         detail:
-          "2 người làm Hoàng Đế, sau đó oẳn tù tì để lấy quyền chọn trước và lần lượt tuyển thành viên về phe mình.",
-        cue: "Ngay từ khâu draft đã bắt đầu tư duy chiến thuật.",
+          "10 người chơi bóc thăm để chọn ra 2 Hoàng Đế. 8 người còn lại là thành viên tự do chờ được tuyển vào đội.",
+        cue: "Mỗi đội cuối cùng sẽ có 1 Hoàng Đế và 4 thành viên.",
       },
       {
-        title: "Phân lính vào từng thử thách",
+        title: "Oẳn tù tì để lấy lượt chọn trước",
         detail:
-          "Hai đội bước vào 5 mini game khác nhau. Mỗi thành viên chỉ được chơi 1 game, nên phải chọn đúng người cho đúng bài.",
-        cue: "Thể lực, khéo léo, IQ/EQ, thiện xạ và chung kết đều cần người phù hợp.",
+          "2 Hoàng Đế oẳn tù tì, người thắng được quyền chọn thành viên trước. Hai bên lần lượt tuyển người cho đến khi đủ đội hình.",
+        cue: "Khâu draft quyết định lợi thế chiến thuật ngay từ đầu.",
       },
       {
-        title: "Chạm mốc 3 chiến thắng",
+        title: "Phân người cho 5 mini game",
         detail:
-          "Đội thắng 3 trên 5 mini game sẽ vô địch. Nếu sau 4 game vẫn cân bằng, hai Hoàng Đế sẽ trực tiếp quyết chiến ở trận cuối.",
-        cue: "Giữ nhịp điểm số và tung át chủ bài đúng lúc là chìa khóa.",
+          "Trước mỗi vòng, Hoàng Đế cân nhắc điểm mạnh của từng người để cử đúng đại diện thi đấu. Mỗi thành viên chỉ được tham gia đúng 1 mini game.",
+        cue: "Không thể dùng lại cùng một người ở 2 game khác nhau.",
+      },
+      {
+        title: "Mini game 1: Plank 1 phút",
+        detail:
+          "Mỗi đội cử 1 người plank trong 1 phút. Ai giữ đúng tư thế lâu hơn là thắng; nếu cả hai đều hoàn thành đủ 1 phút thì tính hòa.",
+        cue: "Đây là vòng thiên về thể lực và độ lì.",
+      },
+      {
+        title: "Mini game 2: Lật chai nước",
+        detail:
+          "Mỗi người cầm 1 chai nước có khoảng 1/3 nước. Trong 1 phút, ai tung chai xoay trên không và tiếp đất đứng thẳng được nhiều lần hơn sẽ thắng.",
+        cue: "Khéo tay và giữ nhịp ổn định sẽ có lợi.",
+      },
+      {
+        title: "Mini game 3: Đuổi hình bắt chữ",
+        detail:
+          "Có 5 hình, mỗi hình tối đa 30 giây. Ai nghĩ ra đáp án thì xung phong trả lời; người thắng trước 3 phần sẽ lấy điểm cho đội.",
+        cue: "Vòng này cần phản xạ nhanh, IQ lẫn EQ.",
+      },
+      {
+        title: "Mini game 4: Thiện xạ tài ba",
+        detail:
+          "Mỗi người có 3 lượt bắn. Bên nào làm ngã được nhiều chai hơn sẽ thắng; nếu số chai ngã bằng nhau thì tính hòa.",
+        cue: "Ưu tiên người có tay ném ổn và giữ bình tĩnh tốt.",
+      },
+      {
+        title: "Mini game 5: Đấu giá sức ăn",
+        detail:
+          "Nếu sau 4 game chưa phân thắng bại, 2 Hoàng Đế trực tiếp tham chiến. Hai bên lần lượt đấu giá số lượng tôm, cua hoặc món đã chọn có thể ăn; người chốt giá thành công phải ăn hết phần đã đấu giá. Ăn hết thì thắng, không ăn hết thì thua.",
+        cue: "Đây là trận chung kết quyết định ngai vàng.",
       },
     ],
     guideOutro:
-      "Game này hợp để đẩy cao tinh thần đồng đội vì mỗi lựa chọn đội hình đều tạo cảm giác đối đầu thật sự.",
+      "Đội thắng chung cuộc là đội chạm mốc 3 điểm trước và phần thưởng được chia đều cho toàn bộ thành viên. Game này thắng không chỉ nhờ sức mạnh cá nhân mà nhờ Hoàng Đế đọc người đúng, chọn quân đúng và giữ nhịp cả đội qua từng vòng.",
     icon: CrownIcon,
   },
   {
     id: "chien-luoc-gia-tai-ba",
     title: "Chiến Lược Gia Tài Ba",
     shortTitle: "Đấu Trí Kẹo Cược",
-    players: "4 người",
-    vibe: "Phân tích • Bluff • Tăng cược",
-    spirit: "Bluff • Suy luận • Tâm lý chiến",
+    players: "4 người • 10 kẹo/người",
+    vibe: "Đầu tư • Bluff • Tăng cược",
+    spirit: "Suy luận • Quản lý vốn • Tâm lý chiến",
     summary:
-      "Một bàn cược gọn nhưng căng, nơi càng ít thông tin thì từng quyết định càng sắc bén.",
+      "Game đấu trí cho 4 người, nơi mỗi quyết định đầu tư trong 2 vòng đều ảnh hưởng trực tiếp tới số kẹo bạn giữ lại.",
     intro:
-      "Mỗi người cầm 10 viên kẹo, bốc 2 lá bài với thông tin bất đối xứng và phải liên tục quyết định theo, tố hay dừng.",
+      "Mỗi người bắt đầu với 10 viên kẹo, bước vào 2 vòng đầu tư chiến lược và phải liên tục cân bằng giữa đọc bài, đọc người và giữ vốn.",
     concept:
-      "Bạn không thắng chỉ nhờ bài mạnh; bạn thắng khi đọc đúng đối thủ và bluff đúng nhịp.",
+      "Thông tin bị chia lệch: lá trên đối thủ biết còn bạn không biết, lá dưới chỉ mình bạn biết. Muốn thắng, bạn phải vừa tính xác suất vừa phân tích nhịp cược của cả bàn.",
     winCondition:
-      "Kết thúc các vòng, ai giữ nhiều kẹo nhất sẽ chiến thắng.",
+      "Sau 2 vòng đầu tư, người có nhiều kẹo nhất sẽ thắng chung cuộc. Trong từng vòng, ai có tổng điểm 2 lá cao nhất sẽ ăn toàn bộ pot; nếu hòa thì chia đều số kẹo cược.",
     bullets: [
-      "Một lá bài bị lộ cho đối thủ, một lá chỉ mình bạn biết.",
-      "Mỗi vòng có 2 lần tăng cược khiến nhịp căng thẳng dồn lên.",
-      "Từng ánh mắt và biểu cảm đều trở thành dữ kiện để đọc vị.",
+      "Bộ bài gồm 20 lá, chia thành 2 hàng; mỗi hàng tương ứng đủ điểm từ 1 đến 10.",
+      "Mỗi người chơi bốc 2 lá tương ứng 2 hàng: lá hàng trên đối thủ biết, lá hàng dưới chỉ mình bạn biết.",
+      "Mỗi vòng mở bằng 1 viên kẹo bắt buộc và mỗi người có đúng 2 cơ hội để nâng mức cược.",
     ],
-    highlights: ["Card flip", "Candy counter", "Focus theo lượt"],
+    sectionFacts: [
+      {
+        label: "Khởi đầu",
+        value: "4 người, mỗi người nhận 10 viên kẹo để làm vốn chơi.",
+      },
+      {
+        label: "Bàn bài",
+        value: "20 lá bài chia thành 2 hàng, mỗi hàng đủ các điểm từ 1 đến 10.",
+      },
+      {
+        label: "Nhịp cược",
+        value: "Chơi 2 vòng đầu tư; đầu vòng đặt 1 kẹo và mỗi người có 2 lần nâng cược.",
+      },
+    ],
+    highlights: ["20 lá bài / 2 hàng", "2 vòng đầu tư", "Candy pot theo từng lượt cược"],
     visualTitle: "Bàn cược nơi mọi ánh nhìn đều có ý đồ",
     accent: "#35d6c4",
     accentSoft: "rgba(53, 214, 196, 0.16)",
@@ -142,31 +194,49 @@ export const games: Game[] = [
     imageSrc: withBasePath("/resources/game-3.png"),
     imageAlt:
       "Poster game Chiến Lược Gia Tài Ba với bốn người chơi, bàn bài và các viên kẹo đặt cược.",
-    posterBubbles: ["Mình đoán mạnh!", "Phân tích đối thủ!", "Tăng cược!"],
+    posterBubbles: ["10 kẹo mở màn", "Phân tích đối thủ!", "Tăng cược hay giữ vốn?"],
     guideIntro:
-      "Một bàn cược nhỏ nhưng rất căng, nơi thông tin bị chia lệch và từng lần tăng kẹo đều là một nước đi tâm lý.",
+      "Chiến Lược Gia Tài Ba là game đấu trí dành cho 4 người. Mỗi người cầm 10 viên kẹo ban đầu, trải qua 2 vòng đầu tư chiến lược và tìm cách chốt pot bằng tổng điểm 2 lá bài cao nhất.",
     guideSteps: [
       {
-        title: "Nhận 10 viên kẹo và 2 lá bài",
+        title: "Khởi đầu với 10 viên kẹo mỗi người",
         detail:
-          "Mỗi người bắt đầu với 10 viên kẹo. Bạn bốc 2 lá bài, một lá thuộc hàng trên và một lá thuộc hàng dưới.",
-        cue: "Kẹo vừa là tài nguyên vừa là áp lực trong mọi quyết định.",
+          "Game có 4 người chơi. Ngay từ đầu, mỗi người được phát 10 viên kẹo để làm vốn đặt cược và tích lũy qua các vòng.",
+        cue: "Giữ vốn tốt ở đầu game sẽ tạo lợi thế rất lớn về cuối.",
       },
       {
-        title: "Đọc thông tin bất đối xứng",
+        title: "Chuẩn bị 20 lá bài thành 2 hàng",
         detail:
-          "Lá hàng trên thì đối thủ thấy còn bạn không thấy. Lá hàng dưới thì chỉ bạn biết, nên ai cũng phải suy luận liên tục.",
-        cue: "Đây là lúc bluff, đoán bài và đọc biểu cảm lên ngôi.",
+          "Trước mặt người chơi có 20 lá bài chia thành 2 hàng. Mỗi hàng gồm đủ các lá tương ứng số điểm từ 1 đến 10 để tạo nên hai nguồn thông tin tách biệt.",
+        cue: "Mỗi người sẽ bốc 1 lá ở hàng trên và 1 lá ở hàng dưới.",
       },
       {
-        title: "Cược, tăng cược, ăn pot",
+        title: "Bốc 2 lá với thông tin bất đối xứng",
         detail:
-          "Mỗi vòng mọi người đặt 1 viên kẹo, sau đó có 2 cơ hội tăng cược. Người có tổng điểm cao nhất lấy toàn bộ pot; hòa thì chia đều.",
-        cue: "Sau toàn bộ các vòng, ai giữ nhiều kẹo nhất sẽ trở thành Chiến Lược Gia Tài Ba.",
+          "Lá thuộc hàng trên là lá bạn không được biết nhưng các đối thủ còn lại sẽ biết. Lá thuộc hàng dưới là lá chỉ mình bạn biết. Vì vậy mỗi người đều vừa có thông tin thật vừa có khoảng mù cần suy luận.",
+        cue: "Đây là phần làm nên chất bluff, đọc bài và đọc người của game.",
+      },
+      {
+        title: "Mở vòng cược bằng 1 viên kẹo bắt buộc",
+        detail:
+          "Ở đầu mỗi vòng đầu tư, tất cả người chơi đều phải đặt trước 1 viên kẹo vào pot. Đây là mức cược nền để bắt đầu cuộc chơi và tạo áp lực cho mọi quyết định tiếp theo.",
+        cue: "Pot đã mở thì ai cũng phải cân nhắc xem có nên theo lớn hay giữ vốn cho vòng sau.",
+      },
+      {
+        title: "Mỗi người có 2 cơ hội để nâng mức cược",
+        detail:
+          "Sau mức cược bắt buộc, người chơi lần lượt nâng cược theo chiến lược của mình. Trong mỗi vòng, mỗi người có đúng 2 lần cơ hội để tăng thêm mức cược nhằm gây áp lực hoặc tận dụng bài mạnh.",
+        cue: "Nâng cược không chỉ để thắng pot mà còn để ép đối thủ lộ phản ứng.",
+      },
+      {
+        title: "So tổng điểm 2 lá để chốt người thắng vòng",
+        detail:
+          "Khi vòng cược khép lại, tổng điểm của 2 lá bài sẽ được dùng để xác định người thắng. Ai có tổng điểm cao nhất sẽ lấy toàn bộ số kẹo trong pot; nếu có nhiều người bằng điểm nhau thì pot được chia đều.",
+        cue: "Kết thúc 2 vòng, ai giữ nhiều kẹo nhất sẽ là Chiến Lược Gia Tài Ba.",
       },
     ],
     guideOutro:
-      "Game này tạo cảm giác hồi hộp rất tốt khi chiếu trên màn lớn vì chỉ cần nhìn vào nhịp cược là người xem đã thấy căng.",
+      "Game này hấp dẫn ở chỗ người chơi không thể chỉ dựa vào may mắn. Muốn thắng, bạn phải biết khi nào nên đầu tư mạnh, khi nào nên giữ vốn, đồng thời phân tích được biểu cảm và khả năng chiến thắng của đối thủ qua từng nhịp cược.",
     icon: StrategyIcon,
   },
 ];
