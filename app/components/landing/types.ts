@@ -4,6 +4,19 @@ export type IconProps = SVGProps<SVGSVGElement>;
 
 export type LandingIcon = ComponentType<IconProps>;
 
+export type GuideStep = {
+  title: string;
+  detail: string;
+  cue: string;
+};
+
+export type HeroMoment = {
+  gameId: string;
+  headline: string;
+  description: string;
+  label: string;
+};
+
 export type Game = {
   id: string;
   title: string;
@@ -12,7 +25,6 @@ export type Game = {
   vibe: string;
   spirit: string;
   summary: string;
-  tagline: string;
   intro: string;
   concept: string;
   winCondition: string;
@@ -25,6 +37,9 @@ export type Game = {
   imageSrc: string;
   imageAlt: string;
   posterBubbles: string[];
+  guideIntro: string;
+  guideSteps: GuideStep[];
+  guideOutro: string;
   icon: LandingIcon;
 };
 

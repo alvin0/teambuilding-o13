@@ -1,104 +1,194 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { games } from "./data";
+import { games, heroMoments } from "./data";
 import { viewport } from "./shared";
 import type { Game, MotionPreference } from "./types";
 
-export function HeroPosterStack({
+export function HeroCelebrationCarousel({
   shouldReduceMotion,
+  activeIndex,
+  onSelect,
 }: {
   shouldReduceMotion: MotionPreference;
+  activeIndex: number;
+  onSelect: (index: number) => void;
 }) {
+  const activeGame = games[activeIndex];
+  const activeMoment = heroMoments[activeIndex];
+
   return (
-    <div className="relative min-h-[31rem] sm:min-h-[37rem]">
-      <div className="absolute inset-0 rounded-[3rem] bg-[radial-gradient(circle_at_20%_18%,rgba(255,164,68,0.28),transparent_28%),radial-gradient(circle_at_78%_18%,rgba(255,98,98,0.2),transparent_26%),radial-gradient(circle_at_50%_100%,rgba(64,178,255,0.24),transparent_34%)] blur-3xl" />
-      <div className="pointer-events-none absolute inset-x-[12%] top-[16%] h-[58%] rounded-[2.6rem] border border-white/42 bg-white/18 backdrop-blur-[2px]" />
+    <div className="relative grid min-h-[32rem] grid-rows-[auto_18rem_auto] overflow-hidden rounded-[2.8rem] bg-[linear-gradient(180deg,rgba(255,252,246,0.96),rgba(255,243,220,0.96))] p-5 sm:p-6 md:min-h-[35rem] md:grid-rows-[auto_28rem_auto]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(255,176,76,0.18),transparent_22%),radial-gradient(circle_at_80%_16%,rgba(255,115,148,0.14),transparent_20%),radial-gradient(circle_at_50%_100%,rgba(78,195,255,0.18),transparent_26%)]" />
+      <div className="pointer-events-none absolute inset-x-[10%] top-[12%] h-[60%] rounded-[2.4rem] border border-white/60 bg-white/18 backdrop-blur-[2px]" />
 
-      <motion.div
-        className="absolute left-[-1%] top-[6%] w-[58%] sm:w-[49%]"
-        animate={
-          shouldReduceMotion
-            ? undefined
-            : { y: [0, -10, 0], rotate: [-9, -6.5, -9] }
-        }
-        transition={{
-          duration: 6.5,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      >
-        <PosterCard game={games[0]} tilt="-rotate-6" priority />
-      </motion.div>
+      <div className="relative z-10 mt-8 h-[18rem] md:mt-4 md:h-[28rem]">
+        {games.map((game, index) => {
+          const slot = getHeroCardSlot(index, activeIndex, games.length);
 
-      <motion.div
-        className="absolute right-[-1%] top-[0%] w-[58%] sm:w-[49%]"
-        animate={
-          shouldReduceMotion
-            ? undefined
-            : { y: [0, 12, 0], rotate: [8.5, 6.25, 8.5] }
-        }
-        transition={{
-          duration: 7.2,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      >
-        <PosterCard game={games[1]} tilt="rotate-6" />
-      </motion.div>
+          return (
+            <motion.div
+              key={game.id}
+              className="absolute left-1/2 top-0 w-[72%] max-w-[34rem] -translate-x-1/2 md:w-[58%]"
+              animate={{
+                x: slot.x,
+                y: slot.y,
+                scale: slot.scale,
+                rotate: slot.rotate,
+                opacity: slot.opacity,
+                filter: slot.blur,
+              }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0.2 }
+                  : {
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 18,
+                      mass: 0.9,
+                    }
+              }
+              style={{ zIndex: slot.zIndex }}
+            >
+              <div className="relative overflow-visible">
+                {slot.isActive ? (
+                  <>
+                    <motion.div
+                      className="absolute -right-6 bottom-8 z-30 rounded-full px-5 py-3 text-base font-black text-white shadow-[0_18px_36px_rgba(255,150,70,0.28)]"
+                      style={{ backgroundColor: activeGame.accent }}
+                      animate={shouldReduceMotion ? undefined : { y: [0, 8, 0] }}
+                      transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                    >
+                      {activeMoment.label}
+                    </motion.div>
+                  </>
+                ) : (
+                  <div
+                    className="absolute left-4 top-4 z-20 rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-white shadow-[0_12px_26px_rgba(255,150,70,0.18)]"
+                    style={{ backgroundColor: game.accent }}
+                  >
+                    {index < activeIndex ? "Vừa chiếu" : "Sắp tới"}
+                  </div>
+                )}
 
-      <motion.div
-        className="absolute bottom-[-1%] left-1/2 w-[66%] -translate-x-1/2 sm:w-[56%]"
-        animate={
-          shouldReduceMotion
-            ? undefined
-            : { y: [0, -12, 0], rotate: [0, -2.5, 0] }
-        }
-        transition={{
-          duration: 6.8,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      >
-        <PosterCard game={games[2]} tilt="rotate-0" />
-      </motion.div>
+                <PosterCard
+                  game={game}
+                  tilt={slot.isActive ? "rotate-0" : ""}
+                  priority={slot.isActive}
+                />
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
 
-      {[
-        {
-          text: "Có phở!",
-          className:
-            "left-[9%] top-[2%] bg-[#fff4e5] text-[#7e3800] shadow-[0_18px_35px_rgba(255,140,97,0.22)]",
-        },
-        {
-          text: "Chiến nào!",
-          className:
-            "right-[5%] top-[37%] bg-[#ffd446] text-[#7a2500] shadow-[0_18px_35px_rgba(255,196,0,0.22)]",
-        },
-        {
-          text: "Tăng cược!",
-          className:
-            "left-[21%] bottom-[1%] bg-[#41d3c8] text-[#08354f] shadow-[0_18px_35px_rgba(53,214,196,0.24)]",
-        },
-      ].map((bubble, index) => (
-        <motion.div
-          key={bubble.text}
-          className={`absolute rounded-full px-6 py-3.5 font-display text-[1.35rem] ${bubble.className}`}
-          animate={
-            shouldReduceMotion
-              ? undefined
-              : { y: index % 2 === 0 ? [0, -10, 0] : [0, 10, 0] }
-          }
-          transition={{
-            duration: 3.4 + index * 0.35,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          style={{ maxWidth: "11rem" }}
-        >
-          {bubble.text}
-        </motion.div>
-      ))}
+      <div className="relative z-10 mt-4 rounded-[2rem] border border-white/72 bg-white/76 p-5 shadow-[0_22px_48px_rgba(255,190,112,0.12)] backdrop-blur-sm md:-mt-2">
+        <div className="max-w-[30rem]">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#b56e40]">
+            Carousel cổ động tự động
+          </p>
+          <div className="relative mt-2 min-h-[10.75rem]">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={activeGame.id}
+                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={shouldReduceMotion ? undefined : { opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="absolute inset-0"
+              >
+                <h3 className="font-display text-[1.9rem] leading-tight tracking-[-0.04em] text-[#6e2a0e]">
+                  {activeMoment.headline}
+                </h3>
+                <p className="mt-2 text-[1rem] leading-7 text-[#86512c]">
+                  {activeMoment.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          {games.map((game, index) => (
+            <button
+              key={game.id}
+              type="button"
+              onClick={() => onSelect(index)}
+              className={`rounded-full px-4 py-2 text-sm font-black transition ${
+                index === activeIndex
+                  ? "text-white shadow-[0_14px_30px_rgba(255,150,70,0.22)]"
+                  : "border border-white bg-white/78 text-[#8f5631]"
+              }`}
+              style={
+                index === activeIndex
+                  ? { backgroundColor: game.accent }
+                  : undefined
+              }
+            >
+              {game.shortTitle}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-4 flex items-center gap-2">
+          {games.map((game, index) => (
+            <button
+              key={`${game.id}-dot`}
+              type="button"
+              aria-label={`Chuyển sang ${game.shortTitle}`}
+              onClick={() => onSelect(index)}
+              className={`h-3 rounded-full transition-all ${
+                index === activeIndex ? "w-12" : "w-3"
+              }`}
+              style={{
+                backgroundColor: index === activeIndex ? game.accent : "rgba(180, 120, 72, 0.28)",
+              }}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
+}
+
+function getHeroCardSlot(index: number, activeIndex: number, total: number) {
+  const normalized = (index - activeIndex + total) % total;
+
+  if (normalized === 0) {
+    return {
+      x: "0%",
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      zIndex: 30,
+      blur: "blur(0px)",
+      isActive: true,
+    };
+  }
+
+  if (normalized === 1) {
+    return {
+      x: "56%",
+      y: 56,
+      scale: 0.72,
+      rotate: 10,
+      opacity: 0.62,
+      zIndex: 10,
+      blur: "blur(1.8px)",
+      isActive: false,
+    };
+  }
+
+  return {
+    x: "-56%",
+    y: 48,
+    scale: 0.72,
+    rotate: -10,
+    opacity: 0.62,
+    zIndex: 10,
+    blur: "blur(1.8px)",
+    isActive: false,
+  };
 }
 
 export function BingoBoard({
@@ -232,14 +322,16 @@ function PosterCard({
     <div
       className={`overflow-hidden rounded-[2.2rem] border border-white/80 bg-white p-3 shadow-[0_26px_65px_rgba(255,160,88,0.22)] ${tilt}`}
     >
-      <Image
-        src={game.imageSrc}
-        alt={game.imageAlt}
-        width={1024}
-        height={768}
-        priority={priority}
-        className="h-auto w-full rounded-[1.5rem]"
-      />
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem]">
+        <Image
+          src={game.imageSrc}
+          alt={game.imageAlt}
+          fill
+          sizes="(min-width: 768px) 34rem, 72vw"
+          priority={priority}
+          className="object-cover"
+        />
+      </div>
     </div>
   );
 }
