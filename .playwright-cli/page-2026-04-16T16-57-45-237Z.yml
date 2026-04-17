@@ -1,0 +1,230 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Team Building 2026" [ref=e5] [cursor=pointer]:
+        - /url: "#hero"
+        - img [ref=e7]
+        - generic [ref=e9]:
+          - paragraph [ref=e10]: Team Building
+          - paragraph [ref=e11]: "2026"
+      - navigation [ref=e12]:
+        - link "Hero" [ref=e13] [cursor=pointer]:
+          - /url: "#hero"
+        - link "01. Bingo Ẩm Thực" [ref=e14] [cursor=pointer]:
+          - /url: "#mon-an-bingo"
+        - link "02. Đại Chiến Đế Chế" [ref=e15] [cursor=pointer]:
+          - /url: "#hoang-de-dai-chien"
+        - link "03. Đấu Trí Kẹo Cược" [ref=e16] [cursor=pointer]:
+          - /url: "#chien-luoc-gia-tai-ba"
+      - link "Vào Game 1" [ref=e17] [cursor=pointer]:
+        - /url: "#mon-an-bingo"
+        - generic [ref=e18]: Vào Game 1
+        - img [ref=e19]
+  - main [ref=e22]:
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]: Lễ hội nội bộ • phiên bản trình chiếu
+        - paragraph [ref=e30]: OS1 + OS3 | Hồ Chí Minh
+        - heading "TEAM BUILDING 2026" [level=1] [ref=e31]:
+          - text: TEAM BUILDING
+          - generic [ref=e32]: "2026"
+        - paragraph [ref=e33]: "Một microsite trình chiếu gồm 4 màn hình lớn: hero mở màn và ba section trò chơi với background rõ cá tính, headline lớn và nhịp đọc đủ mạnh để lên máy chiếu vẫn nhìn thấy ngay."
+        - generic [ref=e34]:
+          - generic [ref=e35]: Tháng 04 / 2026
+          - generic [ref=e36]: Gắn kết
+          - generic [ref=e37]: Vui vẻ
+          - generic [ref=e38]: Chiến thắng
+        - generic [ref=e39]:
+          - link "Khám phá trò chơi" [ref=e40] [cursor=pointer]:
+            - /url: "#mon-an-bingo"
+            - generic [ref=e41]: Khám phá trò chơi
+            - img [ref=e42]
+          - link "Xem thử thách tiếp theo" [ref=e44] [cursor=pointer]:
+            - /url: "#hoang-de-dai-chien"
+            - generic [ref=e45]: Xem thử thách tiếp theo
+            - img [ref=e46]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - paragraph [ref=e51]: 3 game
+            - paragraph [ref=e52]: 3 cá tính
+          - generic [ref=e53]:
+            - paragraph [ref=e54]: 20+ tiếng cười
+            - paragraph [ref=e55]: Liên tục
+          - generic [ref=e56]:
+            - paragraph [ref=e57]: 1 tinh thần
+            - paragraph [ref=e58]: Cùng thắng lớn
+      - generic [ref=e60]:
+        - img "Poster game Món Ăn Bingo với bảng bingo món ăn và người chơi hào hứng quanh bàn." [ref=e64]
+        - img "Poster game Hoàng Đế Đại Chiến với hai đội đối đầu, hai hoàng đế và năm mini game." [ref=e67]
+        - img "Poster game Chiến Lược Gia Tài Ba với bốn người chơi, bàn bài và các viên kẹo đặt cược." [ref=e70]
+        - generic [ref=e71]: Có phở!
+        - generic [ref=e72]: Chiến nào!
+        - generic [ref=e73]: Tăng cược!
+    - article [ref=e77]:
+      - generic: "01"
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - img [ref=e82]
+            - generic [ref=e85]: 6 người
+            - generic [ref=e86]: Ăn vui • Gọi tên • Hô Bingo
+          - generic [ref=e87]:
+            - paragraph [ref=e88]: Game 01
+            - generic [ref=e89]: Nhanh tay • May mắn • Cười bung nóc
+          - heading "Món Ăn Bingo" [level=2] [ref=e90]
+          - paragraph [ref=e91]: Cuộc đua ẩm thực nơi tốc độ, quan sát và độ lì của chiếc bụng cùng lên sân khấu.
+          - generic [ref=e92]:
+            - generic [ref=e93]: Có phở!
+            - generic [ref=e94]: Chọn nhanh!
+            - generic [ref=e95]: Bắt đầu!
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - paragraph [ref=e98]: Concept
+              - paragraph [ref=e99]: Mỗi người tự xếp một bàn Bingo 3×3 từ 9 món ăn và phải ăn ngay khi ô của mình được gọi tên.
+            - generic [ref=e100]:
+              - paragraph [ref=e101]: Tinh thần
+              - paragraph [ref=e102]: Nhịp chơi nhanh, phản xạ liên tục và tiếng cười bùng nổ vì ai cũng vừa soi bảng vừa chiến đấu với chiếc bụng của mình.
+            - generic [ref=e103]:
+              - paragraph [ref=e104]: Chiến thắng
+              - paragraph [ref=e105]: Chạm 2 hàng dọc hoặc 2 hàng ngang trước tiên để thắng.
+          - generic [ref=e106]:
+            - paragraph [ref=e109]: Lấy món càng nhanh, lợi thế mở màn càng lớn.
+            - paragraph [ref=e112]: Trúng ô là phải ăn ngay, không có chỗ cho chần chừ.
+            - paragraph [ref=e115]: Cả bàn luôn ở trạng thái hỗn loạn dễ thương và đầy tiếng cười.
+          - generic [ref=e116]:
+            - paragraph [ref=e117]: Tagline
+            - paragraph [ref=e118]: Ăn nhanh – Trúng chuẩn – Cười thả ga
+          - generic [ref=e119]:
+            - link "Sang Đại Chiến Đế Chế" [ref=e120] [cursor=pointer]:
+              - /url: "#hoang-de-dai-chien"
+              - text: Sang Đại Chiến Đế Chế
+              - img [ref=e121]
+            - link "Về đầu trang" [ref=e123] [cursor=pointer]:
+              - /url: "#hero"
+              - text: Về đầu trang
+              - img [ref=e124]
+        - generic [ref=e132]:
+          - generic [ref=e133]:
+            - generic [ref=e134]: Ăn vui • Gọi tên • Hô Bingo
+            - generic [ref=e135]: 6 người
+          - generic [ref=e136]:
+            - img "Poster game Món Ăn Bingo với bảng bingo món ăn và người chơi hào hứng quanh bàn." [ref=e137]
+            - generic [ref=e138]: Có phở!
+            - generic [ref=e139]: Chọn nhanh!
+            - generic [ref=e140]: Bắt đầu!
+          - generic [ref=e141]:
+            - generic [ref=e142]: Bingo 3×3
+            - generic [ref=e143]: Food pop animation
+            - generic [ref=e144]: Progress theo số hàng
+    - article [ref=e148]:
+      - generic: "02"
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - img [ref=e153]
+            - generic [ref=e155]: 10 người • 2 đội
+            - generic [ref=e156]: Chọn quân • Đấu trận • Vô địch
+          - generic [ref=e157]:
+            - paragraph [ref=e158]: Game 02
+            - generic [ref=e159]: Đối đầu • Chiến thuật • Đồng đội bùng nổ
+          - heading "Hoàng Đế Đại Chiến" [level=2] [ref=e160]
+          - paragraph [ref=e161]: Hai Hoàng Đế tuyển quân, dựng đội hình và phân người đúng trận để tranh ngôi vô địch.
+          - generic [ref=e162]:
+            - generic [ref=e163]: Chọn lính trước!
+            - generic [ref=e164]: Chiến nào!
+            - generic [ref=e165]: Đội tôi thắng!
+          - generic [ref=e166]:
+            - generic [ref=e167]:
+              - paragraph [ref=e168]: Concept
+              - paragraph [ref=e169]: Sau màn draft đội hình, hai phe bước vào 5 mini game trải từ thể lực đến đấu trí và chung kết quyết định.
+            - generic [ref=e170]:
+              - paragraph [ref=e171]: Tinh thần
+              - paragraph [ref=e172]: Mỗi thành viên chỉ ra sân một lần, nên Hoàng Đế thắng bằng cách chọn đúng người cho đúng thử thách.
+            - generic [ref=e173]:
+              - paragraph [ref=e174]: Chiến thắng
+              - paragraph [ref=e175]: Đội thắng 3 trên 5 mini game sẽ giành vương miện vô địch.
+          - generic [ref=e176]:
+            - paragraph [ref=e179]: Draft đội hình tạo cảm giác battle thật sự ngay từ đầu.
+            - paragraph [ref=e182]: Mỗi mini game đại diện cho một loại thử thách khác nhau.
+            - paragraph [ref=e185]: Nếu hòa sau 4 game, hai Hoàng Đế bước vào màn quyết chiến cuối cùng.
+          - generic [ref=e186]:
+            - paragraph [ref=e187]: Tagline
+            - paragraph [ref=e188]: Chiến lược đúng – Đội hình mạnh – Vinh quang thuộc về bạn
+          - generic [ref=e189]:
+            - link "Sang Đấu Trí Kẹo Cược" [ref=e190] [cursor=pointer]:
+              - /url: "#chien-luoc-gia-tai-ba"
+              - text: Sang Đấu Trí Kẹo Cược
+              - img [ref=e191]
+            - link "Về đầu trang" [ref=e193] [cursor=pointer]:
+              - /url: "#hero"
+              - text: Về đầu trang
+              - img [ref=e194]
+        - generic [ref=e202]:
+          - generic [ref=e203]:
+            - generic [ref=e204]: Chọn quân • Đấu trận • Vô địch
+            - generic [ref=e205]: 10 người • 2 đội
+          - generic [ref=e206]:
+            - img "Poster game Hoàng Đế Đại Chiến với hai đội đối đầu, hai hoàng đế và năm mini game." [ref=e207]
+            - generic [ref=e208]: Chọn lính trước!
+            - generic [ref=e209]: Chiến nào!
+            - generic [ref=e210]: Đội tôi thắng!
+          - generic [ref=e211]:
+            - generic [ref=e212]: Layout 2 phe
+            - generic [ref=e213]: Scoreboard 3/5
+            - generic [ref=e214]: Reveal đội hình
+    - article [ref=e218]:
+      - generic: "03"
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - generic [ref=e221]:
+            - img [ref=e223]
+            - generic [ref=e227]: 4 người
+            - generic [ref=e228]: Phân tích • Bluff • Tăng cược
+          - generic [ref=e229]:
+            - paragraph [ref=e230]: Game 03
+            - generic [ref=e231]: Bluff • Suy luận • Tâm lý chiến
+          - heading "Chiến Lược Gia Tài Ba" [level=2] [ref=e232]
+          - paragraph [ref=e233]: Một bàn cược gọn nhưng căng, nơi càng ít thông tin thì từng quyết định càng sắc bén.
+          - generic [ref=e234]:
+            - generic [ref=e235]: Mình đoán mạnh!
+            - generic [ref=e236]: Phân tích đối thủ!
+            - generic [ref=e237]: Tăng cược!
+          - generic [ref=e238]:
+            - generic [ref=e239]:
+              - paragraph [ref=e240]: Concept
+              - paragraph [ref=e241]: Mỗi người cầm 10 viên kẹo, bốc 2 lá bài với thông tin bất đối xứng và phải liên tục quyết định theo, tố hay dừng.
+            - generic [ref=e242]:
+              - paragraph [ref=e243]: Tinh thần
+              - paragraph [ref=e244]: Bạn không thắng chỉ nhờ bài mạnh; bạn thắng khi đọc đúng đối thủ và bluff đúng nhịp.
+            - generic [ref=e245]:
+              - paragraph [ref=e246]: Chiến thắng
+              - paragraph [ref=e247]: Kết thúc các vòng, ai giữ nhiều kẹo nhất sẽ chiến thắng.
+          - generic [ref=e248]:
+            - paragraph [ref=e251]: Một lá bài bị lộ cho đối thủ, một lá chỉ mình bạn biết.
+            - paragraph [ref=e254]: Mỗi vòng có 2 lần tăng cược khiến nhịp căng thẳng dồn lên.
+            - paragraph [ref=e257]: Từng ánh mắt và biểu cảm đều trở thành dữ kiện để đọc vị.
+          - generic [ref=e258]:
+            - paragraph [ref=e259]: Tagline
+            - paragraph [ref=e260]: Ít thông tin – Nhiều suy đoán – Quyết định tất cả
+          - generic [ref=e261]:
+            - link "Quay lại Hero" [ref=e262] [cursor=pointer]:
+              - /url: "#hero"
+              - text: Quay lại Hero
+              - img [ref=e263]
+            - link "Về đầu trang" [ref=e266] [cursor=pointer]:
+              - /url: "#hero"
+              - text: Về đầu trang
+              - img [ref=e267]
+        - generic [ref=e275]:
+          - generic [ref=e276]:
+            - generic [ref=e277]: Phân tích • Bluff • Tăng cược
+            - generic [ref=e278]: 4 người
+          - generic [ref=e279]:
+            - img "Poster game Chiến Lược Gia Tài Ba với bốn người chơi, bàn bài và các viên kẹo đặt cược." [ref=e280]
+            - generic [ref=e281]: Mình đoán mạnh!
+            - generic [ref=e282]: Phân tích đối thủ!
+            - generic [ref=e283]: Tăng cược!
+          - generic [ref=e284]:
+            - generic [ref=e285]: Card flip
+            - generic [ref=e286]: Candy counter
+            - generic [ref=e287]: Focus theo lượt
