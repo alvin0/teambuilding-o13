@@ -17,11 +17,11 @@ export function HeroCelebrationCarousel({
   const activeMoment = heroMoments[activeIndex];
 
   return (
-    <div className="relative grid min-h-[32rem] grid-rows-[auto_18rem_auto] overflow-hidden rounded-[2.8rem] bg-[linear-gradient(180deg,rgba(255,252,246,0.96),rgba(255,243,220,0.96))] p-5 sm:p-6 md:min-h-[35rem] md:grid-rows-[auto_28rem_auto]">
+    <div className="relative overflow-hidden rounded-[2.8rem] bg-[linear-gradient(180deg,rgba(255,252,246,0.96),rgba(255,243,220,0.96))] p-5 sm:p-6">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(255,176,76,0.18),transparent_22%),radial-gradient(circle_at_80%_16%,rgba(255,115,148,0.14),transparent_20%),radial-gradient(circle_at_50%_100%,rgba(78,195,255,0.18),transparent_26%)]" />
       <div className="pointer-events-none absolute inset-x-[10%] top-[12%] h-[60%] rounded-[2.4rem] border border-white/60 bg-white/18 backdrop-blur-[2px]" />
 
-      <div className="relative z-10 mt-8 h-[18rem] md:mt-4 md:h-[28rem]">
+      <div className="relative z-10 mt-7 h-[15rem] md:mt-3 md:h-[23rem]">
         {games.map((game, index) => {
           const slot = getHeroCardSlot(index, activeIndex, games.length);
 
@@ -81,33 +81,84 @@ export function HeroCelebrationCarousel({
         })}
       </div>
 
-      <div className="relative z-10 mt-4 rounded-[2rem] border border-white/72 bg-white/76 p-5 shadow-[0_22px_48px_rgba(255,190,112,0.12)] backdrop-blur-sm md:-mt-2">
-        <div className="max-w-[30rem]">
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#b56e40]">
-            Carousel cổ động tự động
-          </p>
-          <div className="relative mt-2 min-h-[10.75rem]">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={activeGame.id}
-                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={shouldReduceMotion ? undefined : { opacity: 0, y: -8 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="absolute inset-0"
-              >
-                <h3 className="font-display text-[1.9rem] leading-tight tracking-[-0.04em] text-[#6e2a0e]">
-                  {activeMoment.headline}
-                </h3>
-                <p className="mt-2 text-[1rem] leading-7 text-[#86512c]">
-                  {activeMoment.description}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+      <div className="relative z-10 mt-4 flex items-center justify-center gap-2">
+        {games.map((game, index) => (
+          <button
+            key={`${game.id}-dot`}
+            type="button"
+            aria-label={`Chuyển sang ${game.shortTitle}`}
+            onClick={() => onSelect(index)}
+            className={`h-3 rounded-full transition-all ${
+              index === activeIndex ? "w-12" : "w-3"
+            }`}
+            style={{
+              backgroundColor: index === activeIndex ? game.accent : "rgba(180, 120, 72, 0.28)",
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 mt-4 rounded-[2rem] border border-white/72 bg-white/78 p-5 shadow-[0_22px_48px_rgba(255,190,112,0.12)] backdrop-blur-sm md:p-6">
+        <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_15.5rem] md:gap-6">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#b56e40]">
+              Carousel cổ động tự động
+            </p>
+            <div className="relative mt-2 min-h-[7.25rem] md:min-h-[8.25rem]">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={activeGame.id}
+                  initial={shouldReduceMotion ? undefined : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={shouldReduceMotion ? undefined : { opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="absolute inset-0"
+                >
+                  <h3 className="font-display text-[1.75rem] leading-tight tracking-[-0.04em] text-[#6e2a0e] md:text-[1.9rem]">
+                    {activeMoment.headline}
+                  </h3>
+                  <p className="mt-2 max-w-[34rem] text-[0.98rem] leading-7 text-[#86512c]">
+                    {activeMoment.description}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
+
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={`${activeGame.id}-summary`}
+              initial={shouldReduceMotion ? undefined : { opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={shouldReduceMotion ? undefined : { opacity: 0, x: -10 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+              className="rounded-[1.65rem] border border-white/80 bg-[linear-gradient(160deg,rgba(255,248,238,0.98),rgba(255,255,255,0.84))] p-4 shadow-[0_18px_38px_rgba(255,185,106,0.12)]"
+            >
+              <p className="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#bb7747]">
+                Đang khuấy động
+              </p>
+              <div className="mt-3 flex items-center gap-2">
+                <span
+                  className="rounded-full px-3 py-1.5 text-[0.7rem] font-black uppercase tracking-[0.16em] text-white"
+                  style={{ backgroundColor: activeGame.accent }}
+                >
+                  {`Game ${activeIndex + 1}`}
+                </span>
+                <span className="rounded-full border border-[#f3dbc5] bg-white/90 px-3 py-1.5 text-[0.72rem] font-bold text-[#8c552d]">
+                  {activeGame.players}
+                </span>
+              </div>
+              <p className="mt-3 font-display text-[1.35rem] leading-tight text-[#6d2c12]">
+                {activeGame.shortTitle}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-[#8a5731]">
+                {activeGame.vibe}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-5 flex flex-wrap items-center gap-3">
           {games.map((game, index) => (
             <button
               key={game.id}
@@ -126,23 +177,6 @@ export function HeroCelebrationCarousel({
             >
               {game.shortTitle}
             </button>
-          ))}
-        </div>
-
-        <div className="mt-4 flex items-center gap-2">
-          {games.map((game, index) => (
-            <button
-              key={`${game.id}-dot`}
-              type="button"
-              aria-label={`Chuyển sang ${game.shortTitle}`}
-              onClick={() => onSelect(index)}
-              className={`h-3 rounded-full transition-all ${
-                index === activeIndex ? "w-12" : "w-3"
-              }`}
-              style={{
-                backgroundColor: index === activeIndex ? game.accent : "rgba(180, 120, 72, 0.28)",
-              }}
-            />
           ))}
         </div>
       </div>

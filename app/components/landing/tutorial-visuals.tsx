@@ -815,7 +815,7 @@ function StrategyGuideIllustration({
 }) {
   return (
     <svg
-      viewBox="0 0 560 460"
+      viewBox="0 0 560 500"
       className="h-full w-full"
       role="img"
       aria-label="Mô phỏng cách chơi Chiến Lược Gia Tài Ba"
@@ -844,12 +844,12 @@ function StrategyGuideIllustration({
         </radialGradient>
       </defs>
 
-      <rect x="18" y="18" width="524" height="424" rx="40" fill="url(#strategy-bg)" />
+      <rect x="18" y="18" width="524" height="464" rx="40" fill="url(#strategy-bg)" />
       <rect
         x="36"
         y="36"
         width="488"
-        height="388"
+        height="428"
         rx="30"
         fill="#fafdff"
         stroke="#bfe5f4"
@@ -857,25 +857,41 @@ function StrategyGuideIllustration({
       />
 
       {[
-        { x: 64, label: "4 người chơi", fill: "#fff7d4", stroke: "#ffe190", text: "#8a5b12" },
-        { x: 212, label: "10 kẹo / người", fill: "#e8fffb", stroke: "#9de7dc", text: "#12786f" },
-        { x: 388, label: "2 vòng đầu tư", fill: "#edf4ff", stroke: "#b7d6ff", text: "#2766b7" },
+        { x: 54, label: "4 người chơi", fill: "#fff7d4", stroke: "#ffe190", text: "#8a5b12" },
+        { x: 222, label: "10 kẹo / người", fill: "#e8fffb", stroke: "#9de7dc", text: "#12786f" },
+        { x: 390, label: "2 vòng đầu tư", fill: "#edf4ff", stroke: "#b7d6ff", text: "#2766b7" },
       ].map((chip) => (
         <g key={chip.label}>
-          <rect x={chip.x} y="54" width="108" height="42" rx="18" fill={chip.fill} stroke={chip.stroke} strokeWidth="1.5" />
-          <text x={chip.x + 54} y="80" textAnchor="middle" fontSize="13" fontWeight="900" fill={chip.text}>
+          <rect
+            x={chip.x}
+            y="58"
+            width="116"
+            height="42"
+            rx="18"
+            fill={chip.fill}
+            stroke={chip.stroke}
+            strokeWidth="1.5"
+          />
+          <text
+            x={chip.x + 58}
+            y="84"
+            textAnchor="middle"
+            fontSize="13"
+            fontWeight="900"
+            fill={chip.text}
+          >
             {chip.label}
           </text>
         </g>
       ))}
 
-      <rect x="84" y="112" width="392" height="210" rx="34" fill="url(#strategy-table)" />
-      <rect x="100" y="128" width="360" height="178" rx="28" fill="#2f8edd" />
+      <rect x="84" y="132" width="392" height="230" rx="34" fill="url(#strategy-table)" />
+      <rect x="100" y="148" width="360" height="198" rx="28" fill="#2f8edd" />
 
-      <text x="280" y="150" textAnchor="middle" fontSize="14" fontWeight="900" letterSpacing="1.1" fill="#dff3ff">
+      <text x="280" y="172" textAnchor="middle" fontSize="13" fontWeight="900" letterSpacing="1" fill="#dff3ff">
         HÀNG TRÊN: BẠN KHÔNG BIẾT, ĐỐI THỦ ĐƯỢC BIẾT
       </text>
-      <text x="280" y="236" textAnchor="middle" fontSize="14" fontWeight="900" letterSpacing="1.1" fill="#dffdf5">
+      <text x="280" y="270" textAnchor="middle" fontSize="13" fontWeight="900" letterSpacing="1" fill="#dffdf5">
         HÀNG DƯỚI: CHỈ BẠN ĐƯỢC BIẾT
       </text>
 
@@ -888,7 +904,7 @@ function StrategyGuideIllustration({
             {isPrivateFocus ? (
               <motion.rect
                 x={x - 4}
-                y="219"
+                y="243"
                 width="36"
                 height="60"
                 rx="12"
@@ -898,10 +914,19 @@ function StrategyGuideIllustration({
               />
             ) : null}
 
-            <rect x={x} y="164" width="28" height="42" rx="9" fill="url(#strategy-top-card)" stroke="#e6f2ff" strokeWidth="1.6" />
+            <rect
+              x={x}
+              y="190"
+              width="28"
+              height="42"
+              rx="9"
+              fill="url(#strategy-top-card)"
+              stroke="#e6f2ff"
+              strokeWidth="1.6"
+            />
             <text
               x={x + 14}
-              y="190"
+              y="216"
               textAnchor="middle"
               fontSize="15"
               fontWeight="900"
@@ -910,8 +935,17 @@ function StrategyGuideIllustration({
               {card}
             </text>
 
-            <rect x={x} y="250" width="28" height="42" rx="9" fill="url(#strategy-bottom-card)" stroke="#aef3ea" strokeWidth="1.6" />
-            <text x={x + 14} y="276" textAnchor="middle" fontSize="15" fontWeight="900" fill="#f4fffd">
+            <rect
+              x={x}
+              y="286"
+              width="28"
+              height="42"
+              rx="9"
+              fill="url(#strategy-bottom-card)"
+              stroke="#aef3ea"
+              strokeWidth="1.6"
+            />
+            <text x={x + 14} y="312" textAnchor="middle" fontSize="15" fontWeight="900" fill="#f4fffd">
               {card}
             </text>
           </g>
@@ -946,20 +980,20 @@ function StrategyGuideIllustration({
         animate={shouldReduceMotion ? undefined : { scale: [1, 1.08, 1] }}
         transition={{ duration: 1.9, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       >
-        <circle cx="280" cy="326" r="34" fill="url(#strategy-pot)" stroke="#ffe69b" strokeWidth="4" />
-        <text x="280" y="321" textAnchor="middle" fontSize="16" fontWeight="900" fill="#875100">
+        <circle cx="280" cy="378" r="34" fill="url(#strategy-pot)" stroke="#ffe69b" strokeWidth="4" />
+        <text x="280" y="373" textAnchor="middle" fontSize="16" fontWeight="900" fill="#875100">
           POT
         </text>
-        <text x="280" y="341" textAnchor="middle" fontSize="13" fontWeight="900" fill="#875100">
+        <text x="280" y="393" textAnchor="middle" fontSize="13" fontWeight="900" fill="#875100">
           cược chung
         </text>
       </motion.g>
 
       {[
-        { cx: 112, cy: 306, delay: 0 },
-        { cx: 164, cy: 338, delay: 0.18 },
-        { cx: 448, cy: 306, delay: 0.34 },
-        { cx: 396, cy: 338, delay: 0.52 },
+        { cx: 114, cy: 350, delay: 0 },
+        { cx: 170, cy: 388, delay: 0.18 },
+        { cx: 446, cy: 350, delay: 0.34 },
+        { cx: 390, cy: 388, delay: 0.52 },
       ].map((candy) => (
         <motion.circle
           key={`${candy.cx}-${candy.cy}`}
@@ -977,27 +1011,82 @@ function StrategyGuideIllustration({
         />
       ))}
 
-      <rect x="84" y="354" width="392" height="50" rx="18" fill="#f6fffd" stroke="#c8efe8" strokeWidth="1.8" />
-      <text x="138" y="375" textAnchor="middle" fontSize="10.5" fontWeight="900" letterSpacing="0.8" fill="#1a8d80">
-        MỞ VÒNG
-      </text>
-      <text x="138" y="392" textAnchor="middle" fontSize="13" fontWeight="900" fill="#0e615a">
-        Mỗi người đặt 1 kẹo
-      </text>
-
-      <text x="280" y="375" textAnchor="middle" fontSize="10.5" fontWeight="900" letterSpacing="0.8" fill="#2670c4">
-        NÂNG CƯỢC
-      </text>
-      <text x="280" y="392" textAnchor="middle" fontSize="13" fontWeight="900" fill="#1c5ca8">
-        Mỗi người có 2 lần tăng
-      </text>
-
-      <text x="422" y="375" textAnchor="middle" fontSize="10.5" fontWeight="900" letterSpacing="0.8" fill="#cf6b34">
-        CHỐT VÒNG
-      </text>
-      <text x="422" y="392" textAnchor="middle" fontSize="13" fontWeight="900" fill="#97491c">
-        Tổng 2 lá cao nhất thắng
-      </text>
+      {[
+        {
+          x: 68,
+          stroke: "#bfe8e1",
+          fill: "#f6fffd",
+          title: "MỞ VÒNG",
+          detailTop: "Mỗi người đặt",
+          detailBottom: "1 kẹo",
+          titleColor: "#1a8d80",
+          detailColor: "#0e615a",
+        },
+        {
+          x: 204,
+          stroke: "#c7dafd",
+          fill: "#f7fbff",
+          title: "NÂNG CƯỢC",
+          detailTop: "Mỗi người có 2 lần",
+          detailBottom: "tăng cược",
+          titleColor: "#2670c4",
+          detailColor: "#1c5ca8",
+        },
+        {
+          x: 340,
+          stroke: "#ffd7c1",
+          fill: "#fffaf6",
+          title: "CHỐT VÒNG",
+          detailTop: "Tổng 2 lá cao nhất",
+          detailBottom: "sẽ thắng",
+          titleColor: "#cf6b34",
+          detailColor: "#97491c",
+        },
+      ].map((item) => (
+        <g key={item.title}>
+          <rect
+            x={item.x}
+            y="422"
+            width="152"
+            height="54"
+            rx="18"
+            fill={item.fill}
+            stroke={item.stroke}
+            strokeWidth="1.8"
+          />
+          <text
+            x={item.x + 76}
+            y="441"
+            textAnchor="middle"
+            fontSize="10.5"
+            fontWeight="900"
+            letterSpacing="0.8"
+            fill={item.titleColor}
+          >
+            {item.title}
+          </text>
+          <text
+            x={item.x + 76}
+            y="458"
+            textAnchor="middle"
+            fontSize="12"
+            fontWeight="900"
+            fill={item.detailColor}
+          >
+            {item.detailTop}
+          </text>
+          <text
+            x={item.x + 76}
+            y="471"
+            textAnchor="middle"
+            fontSize="12"
+            fontWeight="900"
+            fill={item.detailColor}
+          >
+            {item.detailBottom}
+          </text>
+        </g>
+      ))}
     </svg>
   );
 }
