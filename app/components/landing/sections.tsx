@@ -13,6 +13,9 @@ import {
   StrategyBoard,
 } from "./visuals";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const logoSrc = `${basePath}/resources/logo-company.png`;
+
 const sectionThemes = [
   {
     background:
@@ -128,7 +131,7 @@ export function SiteHeader({
         <a href="#hero" className="flex items-center gap-3 sm:gap-4">
           <span className="flex h-12 items-center rounded-[1.25rem] border border-[#ffd2b3] bg-[linear-gradient(135deg,#ff8e4d,#ff6b5f)] px-3 shadow-[0_16px_30px_rgba(255,134,61,0.2)] sm:h-14 sm:px-4">
             <Image
-              src="/resources/logo-company.png"
+              src={logoSrc}
               alt="Company logo"
               width={1521}
               height={428}
